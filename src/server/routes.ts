@@ -1,5 +1,5 @@
 import * as express from "express";
-import { Employee, Facility, Gas, Reading, User } from "./db";
+import { Anchor, Employee, Facility, Gas, Reading, User } from "./db";
 
 const router = express.Router();
 
@@ -108,22 +108,22 @@ router.delete("/api/facilities/:id", async (req, res, next) => {
 
 // ANCHORS
 router.get("/api/anchors", async (req, res, next) => {
-  const anchors = await Facility.findAll();
+  const anchors = await Anchor.findAll();
   res.json(anchors);
 });
 
 router.post("/api/anchors", async (req, res, next) => {
-  const anchor = await Facility.create(req.body);
+  const anchor = await Anchor.create(req.body);
   res.json(anchor);
 });
 
 router.get("/api/anchors/:id", async (req, res, next) => {
-  const anchor = await Facility.findByPk(req.params.id);
+  const anchor = await Anchor.findByPk(req.params.id);
   res.json(anchor);
 });
 
 router.put("/api/anchors/:id", async (req, res, next) => {
-  const anchor = await Facility.findByPk(req.params.id);
+  const anchor = await Anchor.findByPk(req.params.id);
   if (!anchor) {
     return res.sendStatus(404);
   }
@@ -132,7 +132,7 @@ router.put("/api/anchors/:id", async (req, res, next) => {
 });
 
 router.delete("/api/anchors/:id", async (req, res, next) => {
-  const anchor = await Facility.findByPk(req.params.id);
+  const anchor = await Anchor.findByPk(req.params.id);
   if (!anchor) {
     return res.sendStatus(404);
   }
