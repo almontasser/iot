@@ -47,21 +47,7 @@ const colors = (id: string) => {
 
 /* HOOK REACT EXAMPLE */
 const App = (props: AppProps) => {
-  const [devices, setDevices] = useState<Device[]>([
-    {
-      id: "1",
-      sys: 10,
-      dia: 10,
-      hr: 10,
-      spo2: 10,
-      ld: 0,
-      rd: 10,
-      color: colors("1"),
-      opacity: 1,
-      lastUpdate: new Date(),
-      employee: "سالم الجبالي",
-    },
-  ]);
+  const [devices, setDevices] = useState<Device[]>([]);
   const [gas, setGas] = useState<boolean>(false);
 
   useEffect(() => {

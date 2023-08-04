@@ -8,4 +8,6 @@ export class Device {
   spo2: number; // blood oxygen saturation
   color: string; // color of dot
   opacity: number; // opacity of dot
+  employee?: string; // employee id
+  lastUpdate?: Date;
 }
