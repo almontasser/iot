@@ -200,7 +200,7 @@ const App = (props: AppProps) => {
         )}
       </div>
       <div className="App">
-        <Room width={6.5} height={7} devices={devices} gas={gas} />
+        <Room width={7} height={7} devices={devices} gas={gas} />
       </div>
     </div>
   );
