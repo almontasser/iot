@@ -2,6 +2,8 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import Room from "./components/Room";
 import { socket } from "./socket";
+import SingleRow from "./components/SingleRow";
+import DeviceList from "./components/AllRows";
 
 interface Link {
   a: string;
@@ -27,7 +29,7 @@ interface Device {
   ld: number;
   rd: number;
   color: string;
-  opacity: number;
+  opacity: number;  
   employee?: string;
   lastUpdate: Date;
 }
@@ -45,7 +47,21 @@ const colors = (id: string) => {
 
 /* HOOK REACT EXAMPLE */
 const App = (props: AppProps) => {
-  const [devices, setDevices] = useState<Device[]>([]);
+  const [devices, setDevices] = useState<Device[]>([
+    {
+      id: "1",
+      sys: 10,
+      dia: 10,
+      hr: 10,
+      spo2: 10,
+      ld: 0,
+      rd: 10,
+      color: colors("1"),
+      opacity: 1,
+      lastUpdate: new Date(),
+      employee: "سالم الجبالي",
+    },
+  ]);
   const [gas, setGas] = useState<boolean>(false);
 
   useEffect(() => {
@@ -166,34 +182,9 @@ const App = (props: AppProps) => {
         {devices.length > 0 ? (
           devices.map((device) => (
             // in the shape of a card
-            <div
-              key={device.id}
-              style={{
-                border: "1px solid black",
-                borderRadius: "10px",
-                padding: "10px",
-                margin: "10px 0",
-              }}
-            >
-              {/* circle with color of the device */}
-              <div
-                style={{
-                  width: "20px",
-                  height: "20px",
-                  borderRadius: "50%",
-                  backgroundColor: `#${device.color}`,
-                  display: "inline-block",
-                  float: "left",
-                }}
-              ></div>
-              <h3>الرقم التعريفي: {device.id}</h3>
-              <h3>الاسم: {device.employee}</h3>
-              <h3>الضغط الانقباضي: {device.sys}</h3>
-              <h3>الضغط الانبساطي: {device.dia}</h3>
-              <h3>معدل النبض: {device.hr}</h3>
-              <h3>نسبة الأكسجين: {device.spo2}</h3>
-              <h3>اخر تحديث: {device.lastUpdate.toLocaleString()}</h3>
-            </div>
+            <DeviceList device={device} />
+            
+
           ))
         ) : (
           <h3>لا يوجد أساور</h3>
