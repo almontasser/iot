@@ -175,6 +175,17 @@ const App = (props: AppProps) => {
                 margin: "10px 0",
               }}
             >
+              {/* circle with color of the device */}
+              <div
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  borderRadius: "50%",
+                  backgroundColor: `#${device.color}`,
+                  display: "inline-block",
+                  float: "left",
+                }}
+              ></div>
               <h3>الرقم التعريفي: {device.id}</h3>
               <h3>الاسم: {device.employee}</h3>
               <h3>الضغط الانقباضي: {device.sys}</h3>
