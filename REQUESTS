@@ -1,0 +1,13 @@
+# Sending Biometrics
+
+GET http://localhost:8082
+
+{"id":"1","b":[120,30,50,40],"l":[{"a":"81","r":5},{"a":"82","r":5}]}
+
+=========================
+
+# Sending Gas Readings
+
+GET http://localhost:8082
+
+{"id":"81","type":"anchor","g":false}
