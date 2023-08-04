@@ -29,7 +29,7 @@ interface Device {
   ld: number;
   rd: number;
   color: string;
-  opacity: number;  
+  opacity: number;
   employee?: string;
   lastUpdate: Date;
 }
@@ -146,9 +146,21 @@ const App = (props: AppProps) => {
 
   return (
     <div style={{ direction: "rtl", padding: "0 20px" }}>
-      <div style={{ float: "right" }}>
-        <h1>المدرج</h1>
-        <h2>
+      <div
+        style={{
+          float: "right",
+          border: "2px dashed #b6b6b6",
+          padding: "10px",
+          borderRadius: "10px",
+        }}
+      >
+        <h2 style={{
+          backgroundColor: "#eee",
+          borderRadius: "8px",
+          borderRight: "5px solid #858585",
+          padding: "10px",
+        }}>المدرج</h2>
+        <h3>
           حالة الغاز:{" "}
           <span>
             <div
@@ -161,7 +173,7 @@ const App = (props: AppProps) => {
               }}
             ></div>
           </span>
-        </h2>
+        </h3>
         <br />
         <h2>الأساور</h2>
 
@@ -169,8 +181,6 @@ const App = (props: AppProps) => {
           devices.map((device) => (
             // in the shape of a card
             <DeviceList device={device} />
-            
-
           ))
         ) : (
           <h3>لا يوجد أساور</h3>
